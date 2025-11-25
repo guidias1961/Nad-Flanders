@@ -12,10 +12,9 @@
 <body>
 
     <div class="music-control">
-        <button id="playButton">🔊 PLAY THEME SONG 🔊</button>
+        <button id="playButton">🔊 PLAY THEME SONG</button>
         <audio id="simpsonsTheme" loop>
             <source src="theme.mp3" type="audio/mpeg">
-            Your browser does not support audio. D'oh!
         </audio>
     </div>
 
@@ -28,30 +27,40 @@
             <img src="logo.png" alt="Nad Flanders Logo" class="main-logo float-animation">
             <h1>HI-DIDDLY-HO, CRYPTO NEIGHBORINOS!</h1>
             <h2 class="token-name">$NADLERS</h2>
-            <p class="intro-text">Welcome to the Church of the Purple Monad. The most sanctimonious token on the chain. Prepare for the rapture of gains!</p>
-            <a href="#" class="buy-button pulse-animation">CONVERT YOUR SINS INTO $NADLERS</a>
+            <p class="intro-text">Welcome to the Church of the Purple Monad. The most sanctimonious token on the chain.</p>
+            
+            <a href="#" class="buy-button pulse-animation">BUY $NADLERS</a>
+
+            <div class="social-links">
+                <a href="https://t.me/SEU_TELEGRAM" target="_blank" class="social-btn telegram-btn">
+                    ✈️ TELEGRAM
+                </a>
+                <a href="https://x.com/SEU_TWITTER" target="_blank" class="social-btn twitter-btn">
+                    ❌ TWITTER / X
+                </a>
+            </div>
         </section>
 
         <section class="about-section bubble-box purple-box text-center">
             <h3>THE WORD OF THE LORD (NAD)</h3>
-            <p>Ned Flanders saw the purple light. He swapped his bible for the blockchain and is leading the flock to financial salvation on Monad. Don't be a Homer, be a Nadler.</p>
+            <p>Ned Flanders saw the purple light. He swapped his bible for the blockchain and is leading the flock to financial salvation on Monad.</p>
             <p class="quote">"Feels like I'm paying no gas fees at all... nothing at all... nothing at all!"</p>
         </section>
 
         <section class="tokenomics-section bubble-box yellow-box text-center">
-            <h3>STUPID SEXY TOKENOMICS</h3>
+            <h3 class="readable-title">STUPID SEXY TOKENOMICS</h3>
             <div class="stats-grid">
                 <div class="stat-item">
-                    <span class="stat-value">420.69 Billion</span>
-                    <span class="stat-label">Total Supply (D'oh!)</span>
+                    <span class="stat-value">420.69 B</span>
+                    <span class="stat-label">Total Supply</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-value">0% / 0%</span>
-                    <span class="stat-label">Tax (Stupid Sexy Zero Tax)</span>
+                    <span class="stat-value">0%</span>
+                    <span class="stat-label">Tax</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-value">BURNED</span>
-                    <span class="stat-label">Liquidity (Hotter than Ned's chili)</span>
+                    <span class="stat-label">Liquidity</span>
                 </div>
             </div>
         </section>
@@ -59,34 +68,37 @@
         <section class="how-to-buy bubble-box purple-box text-center">
             <h3>HOW TO JOIN THE CULT</h3>
             <ol class="steps-list" style="text-align: left; display: inline-block;">
-                <li>Get a Monad Wallet (Don't be a heretic).</li>
-                <li>Get some $MON (The holy tithe).</li>
-                <li>Go to the DEX and swap for the true path: <strong>$NADLERS</strong>.</li>
-                <li>Pray for the pump. Amen.</li>
+                <li>Get a Monad Wallet.</li>
+                <li>Get some $MON.</li>
+                <li>Swap for <strong>$NADLERS</strong>.</li>
+                <li>Pray for the pump.</li>
             </ol>
         </section>
     </main>
 
     <footer>
-        <p>This is a meme site. Not financial advice. If you lose money, blame Homer. © 2024 Church of Nad Flanders.</p>
-        <p class="small-text">Tithing is optional, but highly encouraged by God.</p>
+        <p>© 2024 Church of Nad Flanders. Not financial advice.</p>
     </footer>
 
     <script>
-        // Simple script to toggle music
         const playButton = document.getElementById('playButton');
         const audio = document.getElementById('simpsonsTheme');
-        audio.volume = 0.3; // Lower volume
+        audio.volume = 0.3; 
 
         playButton.addEventListener('click', () => {
             if (audio.paused) {
-                audio.play();
-                playButton.textContent = '🔈 PAUSE THEME SONG 🔈';
-                playButton.style.backgroundColor = '#7B2CBF';
-                playButton.style.color = '#FFD90F';
+                // Tenta tocar e avisa se der erro
+                audio.play().then(() => {
+                    playButton.textContent = '🔈 PAUSE MUSIC';
+                    playButton.style.backgroundColor = '#7B2CBF';
+                    playButton.style.color = '#FFD90F';
+                }).catch(error => {
+                    console.error("Erro ao tocar:", error);
+                    alert("Erro: Verifique se o arquivo 'theme.mp3' está na pasta!");
+                });
             } else {
                 audio.pause();
-                playButton.textContent = '🔊 PLAY THEME SONG 🔊';
+                playButton.textContent = '🔊 PLAY MUSIC';
                 playButton.style.backgroundColor = '#FFD90F';
                 playButton.style.color = 'black';
             }
